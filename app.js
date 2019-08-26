@@ -55,7 +55,7 @@ app.get('/viewuserdata',(req,res)=>{
     });
 });
   
-  const APIurl = "http://localhost:4000/viewuserdata";
+  const APIurl = "http://angular-testdemo.herokuapp.com/viewuserdata";
   
 app.get('/viewall',(req,res)=>{
     request(APIurl,(error,response,body)=>{
@@ -80,7 +80,7 @@ app.get('/search',(req,res)=>{
     });
   });
   
-  const APIurl2 = "http://localhost:4000/search";
+  const APIurl2 = "http://angular-testdemo.herokuapp.com/search";
   
   app.post('/searchmob',(req,res)=>{
     const x= req.body.emob;
