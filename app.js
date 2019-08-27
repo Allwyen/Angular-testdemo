@@ -40,12 +40,44 @@ const DataModel = Mongoose.model("userdata",{
     emob:String
 });
 
+const UserModel = Mongoose.model("register",{
+    rname:String,
+    raddress:String,
+    rgender:String,
+    rdob:String,
+    rdistrict:String,
+    rplace:String,
+    rmobile:String,
+    remail:String,
+    runame:String,
+    rpass:String,
+    rcpass:String 
+});
+
 app.get('/',(req,res)=>{
     res.render('index')
   });
 
 app.post('/savedata',(req,res)=>{
     var user = new DataModel(req.body);
+    console.log(user);
+    var result = user.save((error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send(error);
+        }
+        else
+        {
+            //res.send("<script>alert('Successfully Inserted')</script><script>window.location.href='/'</script>");
+            res.send("Inserted Successfully");
+        }
+    });
+
+});
+
+app.post('/saveregister',(req,res)=>{
+    var user = new UserModel(req.body);
     console.log(user);
     var result = user.save((error,data)=>{
         if(error)

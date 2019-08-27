@@ -25,5 +25,41 @@
             <tr><td></td><td><input type="submit" value="Search"></td></tr>
         </table>
     </form>
+    <form action="/saveregister" method="POST">
+        <table>
+                <tr><td>Name:</td><td><input type="text" name="rname" id=""></td></tr>
+                <tr><td>Address:</td><td><textarea name="raddress" id="" cols="30" rows="3"></textarea></td></tr>
+                <tr><td><input type="radio" name="rgender" id="">Male</td><td><input type="radio" name="rgender" id="">Female</td></tr>
+                <tr><td>DoB:</td><td><input type="date" name="rdob" id=""></td></tr>
+                <tr><td>District:</td>
+                  <td>
+                      <select id=""name="rdistrict">
+                          <option selected>Choose...</option>
+                          <option>Thrivanthapuram</option>
+                          <option>kollam</option>
+                          <option>Pathamanthitta</option>
+                          <option>Kottayam</option>
+                          <option>Alappuzha</option>
+                          <option>Idukki</option>
+                          <option>Ernakulam</option>
+                          <option>Thrissur</option>
+                          <option>Malappuram</option>
+                          <option>Palakkad</option>
+                          <option>wayanad</option>
+                          <option>kozhikode</option>
+                          <option>kannur</option>
+                          <option>Kasargod</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr><td>Place:</td><td><input type="text" name="rplace" id=""></td></tr>
+                <tr><td>Mobile:</td><td><input type="text" name="rmobile" id=""></td></tr>
+                <tr><td>Email:</td><td><input type="email" name="remail" id=""></td></tr>
+                <tr><td>Username:</td><td><input type="text" name="runame" id=""></td></tr>
+                <tr><td>Password:</td><td><input type="password" name="rpass" id=""></td></tr>
+                <tr><td>Confirm-Password:</td><td><input type="password" name="rcpass" id=""></td></tr>
+                <tr><td></td><td><input type="submit" value="Register"></td></tr>
+        </table>
+    </form>
 </body>
 </html>
