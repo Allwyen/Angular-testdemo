@@ -132,10 +132,10 @@ app.get('/userregisterall',(req,res)=>{
     });
 });
   
-  const APIurl2 = "http://angular-testdemo.herokuapp.com/userregisterall";
+  const APIurl3 = "http://angular-testdemo.herokuapp.com/userregisterall";
   
 app.get('/registerall',(req,res)=>{
-    request(APIurl2,(error,response,body)=>{
+    request(APIurl3,(error,response,body)=>{
         var data = JSON.parse(body);
         res.send(data);
     });
