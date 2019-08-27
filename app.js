@@ -167,6 +167,21 @@ app.get('/search',(req,res)=>{
     });
   });
 
+  app.get('/searchbymob/:id',(req,res)=>{
+    const item = req.params.id;
+    var result = DataModel.findOne({emob:item},(error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send(error);
+        }
+        else
+        {
+            res.send(data);
+        }
+    })
+  });
+
 app.listen(process.env.PORT || 4000,()=>{
     console.log("Server running on port::4000...");
   });
