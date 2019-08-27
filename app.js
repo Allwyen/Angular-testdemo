@@ -118,6 +118,30 @@ app.get('/viewall',(req,res)=>{
     
 });
 
+app.get('/userregisterall',(req,res)=>{
+    var result = UserModel.find((error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send(error);
+        }
+        else
+        {
+            res.send(data);
+        }
+    });
+});
+  
+  const APIurl2 = "http://angular-testdemo.herokuapp.com/userregisterall";
+  
+app.get('/registerall',(req,res)=>{
+    request(APIurl2,(error,response,body)=>{
+        var data = JSON.parse(body);
+        res.send(data);
+    });
+    
+});
+
 app.get('/search',(req,res)=>{
     var item = req.query.q;
     var result = DataModel.findOne({emob:item},(error,data)=>{
