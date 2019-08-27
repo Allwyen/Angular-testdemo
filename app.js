@@ -55,7 +55,8 @@ app.post('/savedata',(req,res)=>{
         }
         else
         {
-            res.send("<script>alert('Successfully Inserted')</script><script>window.location.href='/'</script>");
+            //res.send("<script>alert('Successfully Inserted')</script><script>window.location.href='/'</script>");
+            res.send("Inserted Successfully");
         }
     });
 
