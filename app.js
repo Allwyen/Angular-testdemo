@@ -31,7 +31,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-Mongoose.connect("mongodb+srv://mongodb:mongodb@mycluster-ucvz5.mongodb.net/Angular?retryWrites=true&w=majority");
+//Mongoose.connect("mongodb+srv://mongodb:mongodb@mycluster-ucvz5.mongodb.net/Angular?retryWrites=true&w=majority");
+
+Mongoose.connect("mongodb://localhost:27017/Angular")
 
 const DataModel = Mongoose.model("userdata",{
     ename:String,
@@ -108,7 +110,7 @@ app.get('/viewuserdata',(req,res)=>{
     });
 });
   
-  const APIurl = "http://angular-testdemo.herokuapp.com/viewuserdata";
+  const APIurl = "http://localhost:4000/viewuserdata";
   
 app.get('/viewall',(req,res)=>{
     request(APIurl,(error,response,body)=>{
@@ -142,7 +144,7 @@ app.get('/registerall',(req,res)=>{
     
 });
 
-app.get('/search',(req,res)=>{
+app.get('/mobsearch',(req,res)=>{
     var item = req.query.q;
     var result = DataModel.findOne({emob:item},(error,data)=>{
         if(error)
@@ -157,14 +159,31 @@ app.get('/search',(req,res)=>{
     });
   });
   
-  const APIurl2 = "http://angular-testdemo.herokuapp.com/search";
+  const APIurl4 = "http://localhost:4000/mobsearch";
   
   app.post('/searchmob',(req,res)=>{
     const x= req.body.emob;
-    request(APIurl2+"/?q="+x,(error,response,body)=>{
+    console.log(x);
+    request(APIurl4+"/?q="+x,(error,response,body)=>{
         var data = JSON.parse(body);
         res.send(data);
     });
+  });
+
+  app.post('/usermobsearch',(req,res)=>{
+    const x = req.body.emob;
+    console.log(x);
+    DataModel.find({emob:x},(error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send(error);
+        }
+        else
+        {
+            res.send(data);
+        }
+    })
   });
 
   app.get('/searchbymob/:id',(req,res)=>{
